@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "correctPolishLetters": "node --watch ./codewars/correctPolishLetters.js",
+    "arrayMadness": "node --watch ./codewars/arrayMadness.js",
+    "positiveSum": "node --watch ./codewars/positiveSum.js",
+    "check": "node --watch ./codewars/check.js",
     "planet": "node --watch ./codewars/planet.js",
     "codewars": "node --watch ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
