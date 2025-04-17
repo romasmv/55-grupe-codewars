@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "differenceInAges": "node --watch ./codewars/differenceInAges.js",
+    "zeroFuel": "node --watch ./codewars/zeroFuel.js",
+    "strCount": "node --watch ./codewars/strCount.js",
+    "even": "node --watch ./codewars/even.js",
     "correctPolishLetters": "node --watch ./codewars/correctPolishLetters.js",
     "arrayMadness": "node --watch ./codewars/arrayMadness.js",
     "positiveSum": "node --watch ./codewars/positiveSum.js",
     "check": "node --watch ./codewars/check.js",
+    "codewarsAll": "node --watch ./codewars/codewarsAll.js",
     "planet": "node --watch ./codewars/planet.js",
     "codewars": "node --watch ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
