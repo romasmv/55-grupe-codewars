@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "tripleTrouble": "node --watch ./codewars/tripleTrouble.js",
+    "getDrinkByProfession": "node --watch ./codewars/getDrinkByProfession.js",
+    "hero": "node --watch ./codewars/hero.js",
     "differenceInAges": "node --watch ./codewars/differenceInAges.js",
     "zeroFuel": "node --watch ./codewars/zeroFuel.js",
     "strCount": "node --watch ./codewars/strCount.js",
