@@ -704,6 +704,257 @@ console.clear();
 
 
 
+/*
+Jūs ir draugas nusprendėte žaisti žaidimą, kad išsiaiškintumėte savo statistines intuicijas. Žaidimas veikia taip:
+
+Turite krūvą raudonų ir mėlynų rutuliukų. Norėdami pradėti žaidimą, paimkite saują kiekvienos spalvos rutuliukų ir įdėkite juos į maišelį, stebėdami, kiek kiekvienos spalvos pateks į juos. Pakaitomis prieiate ranką į maišelį, atspėjate spalvą ir ištraukiate vieną rutuliuką. Jei atspėjote teisingai, gausite tašką. Apgaulė ta, kad jūs turite tik tris sekundes spėti, todėl turite greitai galvoti.
+
+Nusprendėte parašyti funkciją, guessBlue()kuri padėtų automatiškai apskaičiuoti, ar atspėti „mėlyna“ ar „raudona“. Funkcija turi turėti keturis argumentus:
+
+mėlynų rutuliukų, kuriuos įdėjote į krepšį, skaičius
+raudonų rutuliukų, kuriuos įdėjote į krepšį, skaičius
+iki šiol ištrauktų mėlynų rutuliukų skaičius (visada mažesnis nei pradinis mėlynų rutuliukų skaičius)
+iki šiol ištrauktų raudonų rutuliukų skaičius (visada mažesnis nei pradinis raudonųjų rutuliukų skaičius)
+guessBlue()turėtų grąžinti mėlyno marmuro nubrėžimo tikimybę, išreikštą plūde. Pavyzdžiui, guessBlue(5, 5, 2, 3)turėtų grįžti 0.6.
+*/
+
+
+function guessBlue(blueStart, redStart, bluePulled, redPulled) {
+  return ((blueStart-bluePulled)/((blueStart+redStart)-(bluePulled+redPulled)))
+}
+
+
+
+const guessBlue1 = (blueStart, redStart, bluePulled, redPulled) => {
+  return (blueStart - bluePulled) / ((blueStart - bluePulled) + (redStart - redPulled));
+}
+
+// function guessBlue(blueStart, redStart, bluePulled, redPulled) {
+  //   let blueIn = (blueStart - bluePulled),
+  //       redIn = (redStart - redPulled);
+  //   return blueIn / (blueIn + redIn);
+  // }
+  
+  // or ES6 and one liner
+  const guessBlue2 = (bs, rs, bp, rp) => (bs-bp)/(bs-bp + rs - rp);
+  
+  
+  
+  console.log(guessBlue(5, 5, 2, 3), 0.6);
+  console.log(guessBlue(5, 7, 4, 3), 0.2);
+  console.log(guessBlue(12, 18, 4, 6), 0.4);
+  
+  
+console.log('------------------');
+console.clear();
+
+/*
+Sumavimas
+Parašykite programą, kuri surastų kiekvieno skaičiaus nuo 1 iki skaičiaus (abu imtinai) sumavimą. Skaičius visada bus teigiamas sveikasis skaičius, didesnis nei 0. Jūsų funkcijai tereikia grąžinti rezultatą. Toliau pateiktame pavyzdyje tarp skliaustų parodyta, kaip jūs pasiekiate tą rezultatą ir jis nėra jo dalis, žr. pavyzdinius testus.
+
+Pavyzdžiui (įvestis -> išvestis) :
+
+2 -> 3 (1 + 2)
+8 -> 36 (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8)           */
+
+var summation = function (num) {
+  let result = 0;
+  for (let i = 1; i <= num; i++) {
+    if (num > 0){
+      result += i;
+    }
+    
+  }
+ return result
+}
+
+
+
+//var summation = function (num) {
+  //  return num * (num+1) / 2;
+  //}
+  
+  
+console.log(summation(1),  1);
+console.log(summation(2),  3);
+console.log(summation(8), 36);
+  
+  
+console.log('------------------');
+console.clear();
+
+
+/*
+Jums pateikiamas 4 pusių daugiakampis  length ir  width  Daugiakampis gali būti stačiakampis arba kvadratas.
+Jei tai kvadratas, grąžinkite jo plotą. Jei tai stačiakampis, grąžinkite jo perimetrą.
+
+Pavyzdys (1 įvestis, 2 įvestis --> išvestis):
+
+6, 10 --> 32
+3, 3 --> 9
+Pastaba: šios katos tikslais manysite, kad tai yra kvadratas, jei jo length  ir width  yra lygūs, kitu atveju tai yra stačiakampis.
+*/
+
+const areaOrPerimeter = function(l , w) {
+  if (l===w) {
+    return l*w;
+  }
+  else {
+    return 2*(l+w)
+  }
+};
+
+
+//uzrasymo alternativa(zymiai graziu skaitosi)
+const areaOrPerimeter1 = function(l , w) {
+  return l == w ? l*w : 2*(l + w)
+};
+
+
+
+console.log(areaOrPerimeter(3,  3),  9);
+console.log(areaOrPerimeter(6, 10), 32);
+
+
+console.log('------------------');
+console.clear();
+
+
+/*
+Istorija:
+Bobas dirba autobuso vairuotoju. Tačiau jis tapo itin populiarus tarp miesto gyventojų. Kadangi tiek daug keleivių nori įsėsti į jo autobusą, jam kartais tenka susidurti su problema, kad autobuse trūksta vietos! Jis nori, kad parašytumėte paprastą programą, nurodydami, ar jis galės sutalpinti visus keleivius.
+
+Užduočių apžvalga:
+Turite parašyti funkciją, kuri priima tris parametrus:
+
+capyra žmonių skaičius, kurį autobusas gali priimti, neįskaitant vairuotojo.
+onyra žmonių skaičius autobuse, neįskaitant vairuotojo.
+waityra žmonių, laukiančių įlipimo į autobusą, skaičius, neįskaitant vairuotojo.
+Jei yra pakankamai vietos, grąžinkite 0, o jei nėra, grąžinkite keleivių skaičių, kurio jis negali priimti.
+
+Naudojimo pavyzdžiai:
+cap = 10, on = 5, wait = 5 --> 0 # He can fit all 5 passengers
+cap = 100, on = 60, wait = 50 --> 10 # He can't fit 10 of the 50 waiting
+*/
+
+function enough(cap, on, wait) {
+  if (cap-on-wait<0){
+    return (cap-on-wait)*-1;
+  }
+  else if (cap-on-wait===0){
+    return 0;
+  }
+  else {
+    return 0
+  }
+}
+
+
+// alternatyva
+
+function enough(cap, on, wait) {
+  return Math.max(wait + on - cap, 0);
+}
+
+console.log(enough(10, 5, 5), 0);
+console.log(enough(100, 60, 50), 10);
+console.log(enough(20, 5, 5), 0);
+
+
+console.log('------------------');
+console.clear();
+
+/*
+Šioje katoje turite parašyti funkciją, kuri nustato apkabų skaičių, kurį kiekvienas karys turi turėti savo krepšyje.
+
+Jūs gausite ginklą ir gatvių, kurias jie turi kirsti, skaičių. Atsižvelgiant į tai, kad kiekvienoje gatvėje kareivis šaudo 3 kartus. Žemiau yra ginklų santykis:
+
+PT92 – 17 kulkų
+M4A1 – 30 kulkų
+M16A2 – 30 kulkų
+PSG1 – 5 kulkos
+
+Pavyzdys:
+
+["PT92", 6] => 2 (6 gatvės po 3 kulkas)
+["M4A1", 6] => 1
+
+Grąža visada bus sveikasis skaičius, kaip ir parametrai.
+*/
+
+
+function magNumber(info){
+  let result = 0;
+  if(info[0]==='PT92'){
+    result = Math.ceil(info[1]*3/17);
+  } 
+  if(info[0]==='M4A1'){
+    result = Math.ceil(info[1]*3/30);
+  } 
+  if(info[0]==='M16A2'){
+    result = Math.ceil(info[1]*3/30);
+  } 
+  if(info[0]==='PSG1'){
+    result = Math.ceil(info[1]*3/5);
+  } 
+  return result
+}
+
+
+console.log(magNumber(["PT92", 6]), 2)
+console.log(magNumber(["M4A1", 8]), 1)
+console.log(magNumber(["M16A2", 19]), 2)
+console.log(magNumber(["PSG1", 31]), 19)
+console.log(magNumber(["PT92", 19]), 4)
+
+
+console.log('------------------');
+console.clear();
+
+/*
+Grąžina naują masyvą, sudarytą iš elementų, kurių įvesties masyve yra daug jų pačių indekso (ilgis > 1).
+
+Kai kurie atvejai:
+[22, -6, 32, 82, 9, 25] =>  [-6, 32, 25]
+
+[68, -1, 1, -7, 10, 10] => [-1, 10]
+
+[-56,-85,72,-26,-14,76,-27,72,35,-21,-67,87,0,21,59,27,-92,68] => [-85, 72, 0, 68]
+*/
+
+
+function multipleOfIndex(array) {
+  let newArray = [];
+  if (array[0]===0){
+    newArray.push(array[0]) 
+  }
+ for (let i=1;i<=array.length; i++){
+   if (array[i]%i===0){
+    newArray.push(array[i]) 
+   }
+}
+  return newArray
+}
+
+
+console.log(multipleOfIndex([22, -6, 32, 82, 9, 25]))//, [-6, 32, 25])
+console.log(multipleOfIndex([68, -1, 1, -7, 10, 10]))//, [-1, 10])
+console.log(multipleOfIndex([11, -11]))//, [-11])
+console.log(multipleOfIndex([-56,-85,72,-26,-14,76,-27,72,35,-21,-67,87,0,21,59,27,-92,68]))//, [-85, 72, 0, 68])
+console.log(multipleOfIndex([28,38,-44,-99,-13,-54,77,-51]))//, [38, -44, -99])
+console.log(multipleOfIndex([-1,-49,-1,67,8,-60,39,35]))//, [-49, 8, -60, 35])
+console.log(multipleOfIndex([0, 2, 3, 6, 9]))//, [0, 2, 6])
+
+
+
+
+
+
+
+
+
+
+
 
 
 
