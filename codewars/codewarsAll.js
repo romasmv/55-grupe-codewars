@@ -928,11 +928,11 @@ function multipleOfIndex(array) {
   if (array[0]===0){
     newArray.push(array[0]) 
   }
- for (let i=1;i<=array.length; i++){
-   if (array[i]%i===0){
-    newArray.push(array[i]) 
+  for (let i=1;i<=array.length; i++){
+    if (array[i]%i===0){
+      newArray.push(array[i]) 
    }
-}
+  }
   return newArray
 }
 
@@ -946,15 +946,273 @@ console.log(multipleOfIndex([-1,-49,-1,67,8,-60,39,35]))//, [-49, 8, -60, 35])
 console.log(multipleOfIndex([0, 2, 3, 6, 9]))//, [0, 2, 6])
 
 
+console.log('------------------');
+console.clear();
+
+/*
+Prieš išvykdamas atostogauti jūsų bendradarbis turėjo parašyti paprastą pagalbinę funkciją, kad eilutę (kurią sudaro vienas žodis) didžiosiomis raidėmis.
+
+Deja, dabar jie išėjo ir kodas, kurį jums suteikė, neveikia. Pataisykite pagalbinę funkciją, kurią jie parašė, kad ji veiktų taip, kaip numatyta (ty pirmasis simbolis turi būti parašytas didžiosiomis raidėmis).
+
+Eilutė visada prasidės raide ir niekada nebus tuščia.
+
+Pavyzdžiai:
+
+"hello" --> "Hello"
+"Hello" --> "Hello" (the first letter was already capitalized)
+"a"     --> "A"                                                            */
 
 
 
 
 
 
+function capitalizeWord(word) {
+  return word[0].toUpperCase()+ word.slice(1);
+  
+}
+const capitalizeWord1 = word => word[0].toUpperCase()+word.slice(1);
+
+console.log(capitalizeWord('word'), 'Word');
+console.log(capitalizeWord('i'), 'I');
+console.log(capitalizeWord('glasswear'), 'Glasswear');
+
+
+console.log('------------------');
+console.clear();
+
+/*
+AI užkrėtė tekstą simboliu!!
+
+Šis tekstas dabar visiškai pakeistas šiam simboliui.
+
+Pradėdami nuo originalaus teksto ir suteikę simbolią, grąžinkite tekstą, kai jis buvo pakeistas taip, kad visi originalaus teksto simboliai būtų pakeisti simboliu.
+
+Jei tekstas arba simbolis yra tuščias, grąžinkite tuščią eilutę.
+Niekada nebus taip, kad abu tušti, nes niekas nevyksta!!
+
+Pastaba: simbolis yra 1 ilgio eilutė arba tuščia eilutė.
+
+Pavyzdys
+text before = "abc"
+character   = "z"
+text after  = "zzz"            */
+
+
+function contamination(text, char){
+  
+  if(text ===''||text === " "|| char ===''){
+    return ''
+  }
+  let newChar = '';
+  for (let i = 0; i < text.length; i++) {
+    newChar += char;
+  }
+  return newChar
+}
+
+
+//alternatyva
+function contamination(text, char){
+  return char.repeat(text.length)
+}
 
 
 
+const contamination1 = (text, char) => char.repeat(text.length);
+
+console.log(contamination("abc","z"), "zzz")
+console.log(contamination("","z"), "")
+console.log(contamination("abc",""), "")
+console.log(contamination("_3ebzgh4","&"), "&&&&&&&&")
+console.log(contamination("//case"," "), "      ")
+
+
+console.log('------------------');
+console.clear();
+
+/*
+Kai pateikiama raidė, grąžinkite jos vietą abėcėlėje.
+
+Įvestis :: "a"
+
+Išvestis :: "Abėcėlės padėtis: 1"
+
+Pastaba: Tikrinamos tik mažosios angliškos raidės    */
+
+function position(letter){
+  function position(letter){
+    return `Position of alphabet: ${letter.charCodeAt(0)-96}`
+  }
+}
+
+
+
+
+
+function position(letter){
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  return 'Position of alphabet: ' + (alphabet.indexOf(letter) + 1);
+}
+
+
+
+
+console.log(position("a"),"Position: 1");
+console.log(position("z"),"Position: 26");
+console.log(position("e"),"Position: 5");
+
+
+console.log('------------------');
+console.clear();
+
+/*
+Ar galite rasti adatą šieno kupetoje?
+
+Parašykite funkciją findNeedle(), kuri turi arraypilną šiukšlių, bet turi vieną"needle"
+
+Kai jūsų funkcija suranda adatą, ji turėtų grąžinti pranešimą (kaip eilutę), kuriame sakoma:
+
+"found the needle at position "plius indexji rado adatą, taigi:
+
+Pavyzdys (įvestis --> išvestis)
+
+["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5" 
+Pastaba: COBOL jis turėtų grįžti "found the needle at position 6"
+*/
+
+
+function findNeedle(haystack) {
+  for (let i = 0; i < haystack.length; i++) {
+    if(haystack[i] === 'needle'){
+      return `found the needle at position ${[i]}`
+    }
+    
+  }
+}
+
+let haystack_1 = ['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3', true, false];
+let haystack_2 = ['283497238987234', 'a dog', 'a cat', 'some random junk', 'a piece of hay', 'needle', 'something somebody lost a while ago'];
+let haystack_3 = [1,2,3,4,5,6,7,8,8,7,5,4,3,4,5,6,67,5,5,3,3,4,2,34,234,23,4,234,324,324,'needle',1,2,3,4,5,5,6,5,4,32,3,45,54];
+let haystack_4 = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"];
+
+
+console.log(findNeedle(haystack_1), '/ 3');
+console.log(findNeedle(haystack_2), '/ 5');
+console.log(findNeedle(haystack_3), '/ 30');
+console.log(findNeedle(haystack_4), '/ 5');
+
+console.log('------------------');
+console.clear();
+
+
+/*
+Parašykite funkciją pavadinimu setAlarm/ set_alarm/ set-alarm/ setalarm(priklausomai nuo kalbos), kuri gauna du parametrus. Pirmasis parametras employedyra teisingas, kai dirbate, o antrasis parametras vacationyra teisingas, kai atostogaujate.
+
+Funkcija turėtų grįžti į teisingą, jei dirbate, o ne atostogaujate (nes tokiomis aplinkybėmis reikia nustatyti žadintuvą). Priešingu atveju jis turėtų būti klaidingas. Pavyzdžiai:
+
+employed | vacation 
+true     | true     => false
+true     | false    => true
+false    | true     => false
+false    | false    => false
+*/
+
+function setAlarm(employed, vacation){
+  if (employed === false ){
+    return false
+  }
+  if (employed == true && employed === vacation) {
+    return false
+  }
+  else {
+    return true
+  }
+}
+
+
+
+
+
+function setAlarm(employed, vacation){
+  return employed && !vacation;
+}
+
+
+
+
+const setAlarm1 = (employed, vacation) => employed && !vacation;
+
+
+console.log(setAlarm(true, true)),//  false,"Should be false.");
+console.log(setAlarm(false,true)),//  false, "Should be false.");
+console.log(setAlarm(true, false))// true,"Should be true.");
+
+
+console.log('------------------');
+console.clear();
+
+
+/*
+Duotos 2 eilutės air b, grąžinkite eilutę formos trumpas+ilgas+trumpas, su trumpesne eilute išorėje ir ilgesne – viduje. Stygos nebus vienodo ilgio, bet gali būti tuščios ( zeroilgis ).
+
+Patarimas R vartotojams:
+
+Eilutės ilgis ne visada sutampa su simbolių skaičiumi
+Pavyzdžiui: (Input1, Input2) --> output
+
+("1", "22") --> "1221"
+("22", "1") --> "1221"
+*/
+
+function solution(a, b){
+   a = String(a)
+   b = String(b)
+  return a.length < b.length ? a+b+a : b+a+b;
+}
+
+
+console.log(solution('45', '1'), '1451');
+console.log(solution('13', '200'), '1320013');
+console.log(solution('Soon', 'Me'), 'MeSoonMe');
+console.log(solution('U', 'False'), 'UFalseU');
+
+console.log('------------------');
+console.clear();
+/*
+Šalia kelio stovi stulpai. Atstumas tarp stulpų yra vienodas, o stulpų plotis yra vienodas. Jūsų funkcija priima tris argumentus:
+
+1) stulpų skaičius (≥ 1);
+2)atstumas tarp stulpų (10 - 30 metrų);
+3)stulpo plotis (10 - 50 centimetrų).
+
+Apskaičiuokite atstumą tarp pirmo ir paskutinio stulpo centimetrais (be pirmo ir paskutinio stulpo pločio).
+*/
+
+
+function pillars(numPill, dist, width) {
+  if (numPill<=1) {
+    return 0
+  }
+  else {
+    return (dist*100)*(numPill-1)+(width*(numPill-2))
+}
+ 
+}
+
+//alternatyva
+function pillars(num_pill, dist, width) {
+  return num_pill>1?(num_pill-1)*dist*100+(num_pill-2)*width:0;
+}
+
+
+  console.log(pillars(1, 10, 10) , 0);  
+  console.log(pillars(2, 20, 25) , 2000);
+  console.log(pillars(11, 15, 30) , 15270);
+
+
+
+  
 
 
 
