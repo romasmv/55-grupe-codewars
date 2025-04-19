@@ -1209,10 +1209,76 @@ function pillars(num_pill, dist, width) {
   console.log(pillars(1, 10, 10) , 0);  
   console.log(pillars(2, 20, 25) , 2000);
   console.log(pillars(11, 15, 30) , 15270);
-
-
-
   
+  console.log('------------------');
+  console.clear();
+
+
+  /*
+Yra masyvas su kai kuriais skaičiais. Visi skaičiai yra lygūs, išskyrus vieną. Pabandykite jį rasti!
+
+findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+Garantuojama, kad masyve yra bent 3 skaičiai.
+
+Testuose yra keletas labai didelių masyvų, todėl pagalvokite apie našumą.
+  */
+
+function findUniq(arr) {
+  arr = arr.sort()
+  if (arr[0] === arr[1]){
+    return arr[arr.length -1]
+  } else {
+    return arr[0]
+  } 
+}
+
+
+
+
+function findUniq(arr) {
+  return Math.max(...arr.filter((x) => arr.indexOf(x) === arr.lastIndexOf(x)));
+}
+  
+  
+console.log(findUniq([ 1, 0, 0 ]), 1);
+console.log(findUniq([ 0, 1, 0 ]), 1);
+console.log(findUniq([ 0, 0, 1 ]), 1);
+console.log(findUniq([ 1, 1, 1, 2, 1, 1 ]), 2);
+console.log(findUniq([ 1, 1, 2, 1, 1 ]), 2);
+console.log(findUniq([ 3, 10, 3, 3, 3 ]), 10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
