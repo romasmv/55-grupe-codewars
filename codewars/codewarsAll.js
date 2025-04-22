@@ -1212,8 +1212,8 @@ function pillars(num_pill, dist, width) {
   
   console.log('------------------');
   console.clear();
-
-
+  
+  
   /*
 Yra masyvas su kai kuriais skaičiais. Visi skaičiai yra lygūs, išskyrus vieną. Pabandykite jį rasti!
 
@@ -1222,7 +1222,7 @@ findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
 Garantuojama, kad masyve yra bent 3 skaičiai.
 
 Testuose yra keletas labai didelių masyvų, todėl pagalvokite apie našumą.
-  */
+*/
 
 function findUniq(arr) {
   arr = arr.sort()
@@ -1239,8 +1239,8 @@ function findUniq(arr) {
 function findUniq(arr) {
   return Math.max(...arr.filter((x) => arr.indexOf(x) === arr.lastIndexOf(x)));
 }
-  
-  
+
+
 console.log(findUniq([ 1, 0, 0 ]), 1);
 console.log(findUniq([ 0, 1, 0 ]), 1);
 console.log(findUniq([ 0, 0, 1 ]), 1);
@@ -1249,17 +1249,55 @@ console.log(findUniq([ 1, 1, 2, 1, 1 ]), 2);
 console.log(findUniq([ 3, 10, 3, 3, 3 ]), 10);
 
 
+console.log('------------------');
+console.clear();
+
+
+
+/*
+Pateikę eilutę, raides, kurios atskirai užima lyginius ir nelyginius indeksus, rašykite didžiosiomis raidėmis ir grąžinkite, kaip parodyta toliau. Indeksas 0 bus laikomas lygiu.
+Pavyzdžiui capitalize("abcdef") = ['AbCdEf', 'aBcDeF'],. Norėdami gauti daugiau pavyzdžių, žr. bandomuosius atvejus.
+Įvestis bus mažųjų raidžių eilutė be tarpų.
+*/
+
+
+function capitalize(s){
+  newArray55='';
+  newArray56='';
+  for (let i = 0; i < s.length; i++) {
+  if(i%2===0)[
+  newArray55 +=s[i].toUpperCase(),
+  newArray56 +=s[i]
+  ]
+  else{ newArray55 += s[i];
+    newArray56 += s[i].toUpperCase()
+  }
+  }
+  return [newArray55,newArray56]
+}
 
 
 
 
 
+function capitalize(s){
+  const odd = s.split("").map((l, i) => i % 2 !== 0 ? l.toUpperCase() : l).join("");
+  const even = s.split("").map((l, i) => i % 2 === 0 ? l.toUpperCase() : l).join("");
+  return [even, odd];
+};
 
 
 
+function capitalize(s){
+  return [[...s].map((x,i) => i % 2 == 0 ? x.toUpperCase() : x).join(''),
+          [...s].map((x,i) => i % 2 != 0 ? x.toUpperCase() : x).join('')]
+}
 
 
-
+console.log(capitalize("abcdef"), ['AbCdEf', 'aBcDeF']);
+console.log(capitalize("codewars"), ['CoDeWaRs', 'cOdEwArS']);
+console.log(capitalize("abracadabra"), ['AbRaCaDaBrA', 'aBrAcAdAbRa']);
+console.log(capitalize("codewarriors"), ['CoDeWaRrIoRs', 'cOdEwArRiOrS']);
 
 
 
